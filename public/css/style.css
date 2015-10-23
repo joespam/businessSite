@@ -22,6 +22,48 @@
 }
 
 /*
+ *  Styling for the nav menu
+ */
+ul {
+    padding: 0;
+    margin-bottom: 11px;
+}
+
+ul li {
+	position: relative;
+    display: inline;
+    margin-right: 3px;
+}
+
+ul li a {
+    background-color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #696969;
+    border-radius: 4px 4px 0 0;
+}
+
+ul li a:hover {
+    color: white;
+    background-color: black;
+}
+ul li ul.dropdown{
+    min-width: 160px; /* Set width of the dropdown */
+    line-height: 38px;
+    display: none;
+    position: absolute;
+    top: 30px;
+    z-index: 999;
+    left: 0;
+}
+ul li:hover ul.dropdown{
+    display: block;	/* Display the dropdown */
+}
+ul li ul.dropdown li{
+    display: block;
+}
+
+/*
  *  style elements for the contactus page
  */
  /*form {
