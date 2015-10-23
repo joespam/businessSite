@@ -8,24 +8,28 @@ require './views/sendmail.rb'
 #  toplevel
 #
 get '/' do
+	@title_name="Home"
 	erb :index 
 end
 
 # subscriber landing page
 #
 get '/subscriber' do
+	@title_name="Subscriber"
 	erb :subscriber
 end
 
 # provider landing page
 #
 get '/provider' do
+	@title_name="Provider"
 	erb :provider
 end
 
 # contact us page
 #
 get '/contact' do
+	@title_name="Contact"
 	erb :contact
 end
 
