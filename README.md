@@ -1,3 +1,5 @@
+
+
 Before you Start Coding
 
 Spend time with your groupmates sketching out the website on paper 
@@ -18,9 +20,14 @@ Use collaborative software development best practices to complete
 
 
 Site requirements:
+
 At least 4 separate pages 
+
 Use photographs
+
 Use jQuery and JavaScript for interaction 
+
 Should have the option to contact the business using the 
   Mandrill API to send an e-mail to the business owner 
+
 Feel free to get incredibly creative!
