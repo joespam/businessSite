@@ -36,19 +36,23 @@ end
 # action when the 'submit' button is pushed
 #  on the "contact us" page
 #
-post '/views/contact_us' do
+post '/contact_us' do
 	puts "my params are" + params.inspect
 #	send_email params
 end
 
 # action when the ' subscriber login' button is pushed
 #
-post '/views/subscriber' do
-	puts "my params are" + params.inspect
+post '/subscriber_login' do
+	puts "-------------------------------- my params are" + params.inspect
+	@title_name="Subscriber"
+	erb :subscriber
 end
 
 # action when the 'content provider login' button is
 # pushed
-post '/views/provider' do
-	puts "my params are" + params.inspect
+post '/provider_login' do
+	puts "------------------------------- my params are" + params.inspect
+	@title_name="Provider"
+	erb :provider
 end
