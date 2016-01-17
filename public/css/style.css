@@ -75,11 +75,12 @@ ul li ul.dropdown li{
   font-family: arial;
   font-size: 20pt;
 }
-.top-margin {
-  margin-top: 30px;
+.formfont {
+  font-family: arial;
+  font-size: 14pt;
 }
-.cfloat {
-  clear:both;
+.top-margin {
+  margin-top: 20px;
 }
 .row:before, 
     .row:after {
@@ -132,13 +133,13 @@ ul li ul.dropdown li{
 /* 
  *  Styling for the login dialog
  */
-.button{
+/*.button{
   border:1px solid #333;
   background:#6479fd;
 }
 .button:hover{
   background:#a4a9fd;
-}
+}*/
 .dialog{
   border:5px solid #666;
   padding:10px;
@@ -148,14 +149,15 @@ ul li ul.dropdown li{
 }
 .dialog label{
   display:inline-block;
-  color:#cecece;
+  /*color:#cecece;*/
+  color: white;
 }
-input[type=text]{
+/*input[type=text]{
   border:1px solid #333;
   display:inline-block;
   margin:5px;
-}
-#btnOK{
+}*/
+/*#btnOK{
   border:1px solid #000;
   background:#ff9999;
   margin:5px;
@@ -163,16 +165,39 @@ input[type=text]{
 #btnOK:hover{
   border:1px solid #000;
   background:#ffacac;
-}
+}*/
 /*
  *  style elements for the contactus page
  */
- /*form {
- 	display: block;
- }
- input{
-	display: block;
- }
- textarea {
- 	display: block;
- }
+.btn {
+  -webkit-border-radius: 6;
+  -moz-border-radius: 6;
+  border-radius: 6px;
+  font-family: Arial;
+  color: white;
+  font-size: 20px;
+  background: aqua;
+  padding: 10px 20px 10px 20px;
+  border: solid black 2px;
+  text-decoration: none;
+}
+.btn:hover {
+  color: black;
+  background: white;
+  text-decoration: none;
+}
+/*input[type="checkbox"] {
+    display:none;
+}
+input[type="checkbox"] + label span {
+    display:inline-block;
+    width:19px;
+    height:19px;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;
+    background:url("/images/check_radio_sheet.png") left top no-repeat;
+    cursor:pointer;
+}
+input[type="checkbox"]:checked + label span {
+    background:url("/images/check_radio_sheet.png") -19px top no-repeat;
+}*/

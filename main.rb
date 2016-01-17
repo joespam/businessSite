@@ -12,7 +12,7 @@ get '/' do
 	erb :index 
 end
 
-# subscriber landing page
+# partner landing page
 #
 get '/partner' do
 	@title_name="Partners"
@@ -44,8 +44,8 @@ end
 #  on the "contact us" page
 #
 post '/contact_us' do
-	puts "my params are" + params.inspect
-#	send_email params
+	send_email params
+	erb :index
 end
 
 # action when the ' subscriber login' button is pushed

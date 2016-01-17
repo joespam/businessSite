@@ -1,7 +1,25 @@
-<form method="POST" action="/sign-in">
+<form class="formfont" method="POST" action="/contact_us">
 
-	<label for="emailContact">Contact Us!</label>   
-	<textarea rows="20" cols="50" name="emailContact">   
-	</textarea>
-	<input type="submit"> 
+	<p><label class="sitefont" for="emailContact">Contact Us!</label></p>
+	<p><label for="emailContact">I am an</label></p>
+	<p>
+		<input type="radio" id="existing" name="radio" value="existing">
+		<label for="existing"><span></span>Existing</label>
+		<input type="radio" id="potential" name="radio" value=="potential" checked="checked">
+		<label for="potential"><span></span>Potential</label>
+	</p>
+	<p>
+		<input type="radio" id="provider" name="radio2" value="provider" checked="checked">
+		<label for="provider"><span></span>Provider</label>
+		<input type="radio" id="subscriber" name="radio2" value="subscriber">
+		<label for="subscriber"><span></span>Subscriber</label>
+	</p>
+	<p><label><span></span>Email/Other Contact Info</label></p>
+	<p>
+		<input type="checkbox" id="email" name="cc" />
+		<input class="formfont" type="text" id="email" name="email">
+	</p>
+	<p><textarea class="formfont" rows="10" cols="30" name="emailContact">   
+	</textarea></p>
+	<p><input class="btn" type="submit"></p>
 </form>
