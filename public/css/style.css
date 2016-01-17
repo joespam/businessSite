@@ -46,7 +46,8 @@ ul li a {
     background-color: #ffffff;
     padding: 10px 20px;
     text-decoration: none;
-    color: #696969;
+    /*color: #696969;*/
+    color: black;
     border-radius: 4px 4px 0 0;
 }
 
@@ -74,20 +75,59 @@ ul li ul.dropdown li{
   font-family: arial;
   font-size: 20pt;
 }
+.top-margin {
+  margin-top: 30px;
+}
+.cfloat {
+  clear:both;
+}
+.row:before, 
+    .row:after {
+        content:"";
+        display: table ;
+         clear:both;
+    }
 /* 
  *  Styling for the front page
  */
  #fpbox {
-  width: 900px;
+  width: 1000px;
   padding-left: 50px;
  }
-.frontpage {
+.rfloat {
   float: right;
+}
+.fp-rwidth{
   width: 400px;
 }
-.floatleft {
+.lfloat {
   float: left;
+}
+.fp-lwidth {
   width: 450px;
+}
+/* 
+ *  Styling for the partner page
+ */
+.pp-rwidth{
+  width: 590px;
+}
+.pp-lwidth {
+  width: 400px;
+}
+.andu {
+  width: 300px;
+  text-align: center;
+  height: 168px;
+  line-height: 168px;
+  display: inline-block;
+  margin: auto;
+  border: solid 1px black;
+}
+.andu span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;      
 }
 /* 
  *  Styling for the login dialog

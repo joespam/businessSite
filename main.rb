@@ -14,6 +14,13 @@ end
 
 # subscriber landing page
 #
+get '/partner' do
+	@title_name="Partners"
+	erb :partner
+end
+
+# subscriber landing page
+#
 get '/subscriber' do
 	@title_name="Subscriber"
 	erb :subscriber
