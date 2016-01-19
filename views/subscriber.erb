@@ -1,5 +1,68 @@
-<p>
-	<h1>
-		"You Have Logged in as a Subscriber"
-	</h1>
-</p>
+<p class="fix-wkba-margins"><span class="title bold">Welcome, Subscriber!</span> (This page is a UI mockup)</h1></p>
+
+<div class="lfloat fp-lwidth">
+		<p class="subtitle bold top-margin fix-wkba-margins">Provider Feeds</h2>
+		<h3 class="formfont fix-wkba-margins">Select Any and All that Serve Your Interests</h3>
+	<p class="fix-wkba-margins">
+	</p>
+	<% @videos.each_with_index do |video,i| %>
+		<div class="img">
+			<a target="_blank" href="<%="#{video}"%>">
+				<img src="<%="#{video}"%>" alt="" width="144px" height="192">
+			</a>
+			<div class="desc">
+				<input type="checkbox" id=<%="v#{i}"%> name=<%="v#{i}"%>>
+				<label for=<%="v#{i}"%>><span></span>Select</label>
+			</div>
+		</div>
+	<% end %>
+
+</div>
+<div class="rfloat fp-rwidth sitefont">
+	<p class="subtitle bold top-margin fix-wkba-margins">Your Selected Feeds</h2>
+	<div id="fol0">
+		<ul class="imganim effect boxed">
+			<li>
+				<h2 class="zero">Holistic Health Feed</h2>
+				<p class="zero">212 videos     Duration:  02:15:43</p>
+			</li>
+			<li><img class="top" src="/images/subscriber/SubscribersFeed_001.jpg" alt=""/></li>
+		</ul>
+	</div>
+	<div id="fol1">
+		<ul class="imganim effect boxed">
+			<li>
+				<h2 class="zero">Good Cooking! Feed</h2>
+				<p class="zero">114 videos      Duration:  02:18:36</p>
+			</li>
+			<li><img class="top" src="/images/subscriber/SubscribersFeed_002.jpg" alt=""/></li>
+		</ul>
+	</div>
+	<div id="fol2">
+		<ul class="imganim effect boxed">
+			<li>
+				<h2 class="zero">Mens Fitness Feed</h2>
+				<p class="zero">97 videos      Duration:  01:24:14</p>
+			</li>
+			<li><img class="top" src="/images/subscriber/SubscribersFeed_003.jpg" alt=""/></li>
+		</ul>
+	</div>
+	<div id="fol3">
+		<ul class="imganim effect boxed">
+			<li>
+				<h2 class="zero">Healthy Women Feed</h2>
+				<p class="zero">86 videos      Duration:  0:57:48</p>
+			</li>
+			<li><img class="top" src="/images/subscriber/SubscribersFeed_004.jpg" alt=""/></li>
+		</ul>
+	</div>
+	<div id="fol4">
+		<ul class="imganim effect boxed">
+			<li>
+				<h2 class="zero">Family & Kids Feed</h2>
+				<p class="zero">102 videos      Duration:  01:03:28</p>
+			</li>
+			<li><img class="top" src="/images/subscriber/SubscribersFeed_005.jpg" alt=""/></li>
+		</ul>
+	</div>
+</div>
