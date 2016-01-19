@@ -20,6 +20,21 @@
   left: 0;
   z-index: -10;
 }
+.fix-wkba-margins {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+.title {
+  font-family: arial;
+  font-size: 32pt;
+}
+.subtitle {
+  font-family: arial;
+  font-size: 24pt;
+}
+.bold {
+  font-weight: bold;
+}
 h1 {
   font-family: arial;
   font-weight: bold;
@@ -29,20 +44,20 @@ h1 {
 /*
  *  Styling for the nav menu
  */
-ul {
+.nav {
     font-family: arial;
     font-size: 20pt;
     padding: 0;
     margin-bottom: 11px;
 }
 
-ul li {
+.nav li {
 	position: relative;
     display: inline;
     margin-right: 3px;
 }
 
-ul li a {
+.nav li a {
     background-color: #ffffff;
     padding: 10px 20px;
     text-decoration: none;
@@ -51,36 +66,51 @@ ul li a {
     border-radius: 4px 4px 0 0;
 }
 
-ul li a:hover {
+.nav li a:hover {
     color: white;
     /*background-color: black;*/
     background-color: aqua;
 }
-ul li ul.dropdown{
+
+.nav li ul.dropdown{
     min-width: 300px; /* Set width of the dropdown */
-    line-height: 51px;
+    line-height: 50px;
     display: none;
     position: absolute;
     top: 40px;
     z-index: 999;
-    left: 0;
+    left: -40px;
 }
-ul li:hover ul.dropdown{
+
+.nav li:hover ul.dropdown{
     display: block;	/* Display the dropdown */
 }
-ul li ul.dropdown li{
+
+.nav li ul.dropdown li{
     display: block;
 }
+
 .sitefont {
   font-family: arial;
   font-size: 20pt;
 }
+
 .formfont {
   font-family: arial;
   font-size: 14pt;
 }
+
 .top-margin {
-  margin-top: 20px;
+  margin-top: 16px;
+}
+.contact-width {
+  width: 300px;
+}
+.email-width {
+  width: 259px;  
+}
+.col-half {
+  width:50%;
 }
 .row:before, 
     .row:after {
@@ -88,6 +118,10 @@ ul li ul.dropdown li{
         display: table ;
          clear:both;
     }
+
+.boxed {
+  border: solid 5px black;
+}
 /* 
  *  Styling for the front page
  */
@@ -186,9 +220,13 @@ ul li ul.dropdown li{
   background: white;
   text-decoration: none;
 }
-/*input[type="checkbox"] {
+/* 
+ *  Custom checkbox and radio button styling for the login dialog
+ */
+input[type="checkbox"] {
     display:none;
 }
+/*input[type="checkbox"] + label span {*/
 input[type="checkbox"] + label span {
     display:inline-block;
     width:19px;
@@ -200,4 +238,97 @@ input[type="checkbox"] + label span {
 }
 input[type="checkbox"]:checked + label span {
     background:url("/images/check_radio_sheet.png") -19px top no-repeat;
-}*/
+}
+input[type="radio"] {
+    display:none;
+}
+input[type="radio"] + label span {
+    display:inline-block;
+    width:19px;
+    height:19px;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;
+    background:url("/images/check_radio_sheet.png") -38px top no-repeat;
+    cursor:pointer;
+}
+input[type="radio"]:checked + label span {
+    background:url("/images/check_radio_sheet.png") -57px top no-repeat;
+}
+/*
+ *  image mouse over pulldown animation
+ */
+
+.imganim {
+    position:relative;
+    width:300px;
+    height:200px;
+    overflow:hidden;
+    float:left;
+    margin-right:20px;
+    background-color:rgba(26,76,110,0.5)
+}
+.imganim p,.imganim h2 {
+    color:#fff;
+    padding:10px;
+    left:-20px;
+    top:20px;
+    position:relative
+}
+.imganim p {
+    /*font-family:'Lato';*/
+    font-family:'arial';
+    font-size:12px;
+    line-height:18px;
+    margin:0
+}
+.imganim h2 {
+    font-size:20px;
+    line-height:24px;
+    margin:0;
+    font-family:'Lato'
+}
+.imganim li {
+  list-style-type: none;*/
+}
+.effect img {
+    position:absolute;
+    left:0;
+    bottom:0;
+    cursor:pointer;
+    margin:-12px 0;
+    -webkit-transition:bottom .3s ease-in-out;
+    -moz-transition:bottom .3s ease-in-out;
+    -o-transition:bottom .3s ease-in-out;
+    transition:bottom .3s ease-in-out
+}
+.effect img.top:hover {
+    bottom:-96px;
+    padding-top:100px
+}
+h2.zero,p.zero {
+    margin:0;
+    padding:0
+}
+/*
+ *  image gallery
+ */
+div.img {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 180px;
+}
+
+div.img:hover {
+    border: 1px solid #777;
+}
+
+div.img img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}

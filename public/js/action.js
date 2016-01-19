@@ -2,62 +2,99 @@
 //  Javascript - JCS Week 2 Day 1 final jQuery Exercise
 // 
 
-//
-//  commented out as a stub for future use
-//
-
 // define function to be run later
 var whenReady = function () {
 
-    $("#myLoginWrapper1").hide();
-    $("#myLoginWrapper2").hide();
-    
-	// this is our callback function
+	$("#myLoginWrapper").hide();
+
+	var i = 0;
+	for (i = 0; i < 5; i++) { 
+		$("#fol" + i.toString()).hide();
+	};
+
+	// callback for when user logs in as a provider
 	//
 	var provideClick = function() {
-		console.log('about to set provider_login as post');
+		console.log('about to set contact as post target');
 		// set the dialog to go to the login for providers
 		//
-		
-		$('#signinForm').action = '/contact';
-
-		// if( typeof ($('#signinForm')) === 'undefined' ) {
-		// 	$('#signinForm').action = "/provider_login";
-
-
-		// // show the modal login dialog
-		// //
-	     $("#myLoginWrapper1").show(500);
-		 // } else {
-		 // 	console.log("WHY can't I get the signin form?");
-		 // 	console.log(document);
-		 // }
-	}
-
-	var subscribeClick = function() {
-		// set the dialog to go to the login for subscribers
-		//
-		// $('#signinForm').action = "/subscriber_login";
-		// document.getElementById('#signinForm').action = "/subscriber_login";
-		// if( typeof ( document.getElementById('#signinForm') ) === 'undefined' ) {
+		$('#signinForm').get(0).setAttribute('action', '/provider_login'); 
 
 		// show the modal login dialog
 		//
-	    $("#myLoginWrapper2").show(500);
-		// } else {
-		// 	console.log("Also undefined getting element by ID")
-		// }
+		$("#myLoginWrapper").show(500);
+		$(".dropdown").css('display','none');
+	}
+	// callback for when user logs in as a subscriber
+	//
+	var subscribeClick = function() {
+		// set the dialog to go to the login for subscribers
+		//
+		$('#signinForm').get(0).setAttribute('action', '/subscriber_login'); 
+
+		// show the modal login dialog
+		//
+		$("#myLoginWrapper").show(500);
+		$(".dropdown").css('display','none');
 	}
 
-	$('#provide').click( provideClick );		
+	// set up the click actions for providers/subscribers
+	// in the navbar
+	//
+	$('#provide').click( provideClick );
 	$('#subscribe').click( subscribeClick );
 
-    $("#btnCancel1").click(function() {
-    	$("#myLoginWrapper1").hide(400);
-    });
-    $("#btnCancel2").click(function() {
-    	$("#myLoginWrapper2").hide(400);
-    });
+	// ensure that hovering over 'log in' displays the dropdown
+	//
+	$("#dropdown").hover ( 
+		function() {$(".dropdown").css('display','block');}, 
+		function() {$(".dropdown").css('display','none');}
+	);
+
+	// make sure that if the user cancels instead 
+	// of logging in, the login form goes away.
+	$("#btnCancel").click(function() {
+		$("#myLoginWrapper").hide(400);
+	});
+
+	// enable and disable email field
+	// when form textbox clicks
+	//
+	$("#c1").change( function() {
+		// this does not work for unknown reasons
+		// $("#emailfield").disabled = !this.checked;
+		$("#emailfield").prop('disabled', !this.checked);
+	});
+
+   // on the subscriber page, set each provider checkbox to
+   // toggle the visibility of the corresponding feed div
+   // 
+   for (i = 0; i < 5; i++) { 
+	 	$("#v" + i.toString()).click( function() {
+			// $("#fol" + i.toString()).toggle(); 
+			// the above won't work because the concatenation
+			// to produce the element name isn't evaluated
+			// until click time, at which point i is static
+			//  at the 'for' loop exit condition value.
+			//
+			// but the value of 'i' we need is contained in the
+			// checkbox name, held in this.id, so we can
+			// extract everything that isn't a number and
+			// build the corresponding element name with that.
+			var numray = this.id.split("v");
+			$("#fol" + numray[1]).toggle(); 
+	   });
+   };
+
+   $("#uploadV").click(function() {
+   	console.log("YTMND");
+   	if (this.checked) {
+   		console.log('chekt');
+	   	open('/upload_video','_self');
+	   } else {
+   		console.log('rekt');	   	
+	   }
+   });
 };
 
 // bind function to ready event

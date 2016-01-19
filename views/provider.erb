@@ -1,5 +1,53 @@
-<p>
-	<h1>
-		"You Have Logged In as a Content Provider"
-	</h1>
-</p>
+<p><span class="title bold">Your Provider Profile</span> (This page is a UI mockup)</h1></p>
+<!-- <a href="#">Upload New Videos</a> -->
+<div class="lfloat fp-lwidth">
+	<p>
+		<h2 class="subtitle">Uploaded Video Gallery</h2>
+	</p>
+
+	<div class="img">
+<!-- this png is 128x128 but somehow never resizes and ignores any width settings so it's always is a size that horks the layout. Fixing this is a future bug 
+ 		<a target="_blank" href="#">
+			<img src="/images/upload-video-icon.png" alt="Click Here to Upload a Video" width="144px" height="192px"> 
+		</a> -->
+		<a href="/upload_video">
+			<img src="/images/video_icon-300x292.png" alt="Click Here to Upload a Video" width="144px" height="192px">
+		</a>
+		<div class="desc">
+			<input type="checkbox" id="uploadV" name="uploadV">
+			<label for="uploadV"><span></span>Upload A Video</label>
+		</div>
+	</div>
+
+	<% @videos.each_with_index do |video,i| %>
+		<div class="img">
+			<a href="/play_video">
+				<img src="<%="#{video}"%>" alt="" width="144px" height="192px">
+			</a>
+			<div class="desc">
+				<input type="checkbox" id=<%="v#{i}"%> name=<%="v#{i}"%>>
+				<label for=<%="v#{i}"%>><span></span>Approve For Feed</label>
+			</div>
+		</div>
+	<% end %>
+
+</div>
+<div class="rfloat fp-rwidth sitefont">
+	<p>
+		<h2 class="subtitle">Your Followers</h2>
+	</p>
+	<ul class="imganim effect boxed">
+		<li>
+			<h2 class="zero">Gold's Gym, Inc.</h2>
+			<p class="zero">Apprx views:  10.5k/Mo</p>
+		</li>
+		<li><img class="top" src="/images/provider/Prov_SubLogo01_JPGaqua.jpg" alt=""/></li>
+	</ul>
+	<ul class="imganim effect boxed">
+		<li>
+			<h2 class="zero">Planet Fitness, Inc.</h2>
+			<p class="zero">Apprx views:  6.3k/Mo</p>
+		</li>
+		<li><img class="top" src="/images/provider/Prov_SubLogo02_JPGaqua.jpg" alt=""/></li>
+	</ul>
+</div>
