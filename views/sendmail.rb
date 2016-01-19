@@ -7,7 +7,7 @@ def send_email params
 
 	emailBody = "I am an " + params[:radio] + " " + params[:radio2] + ". "
 	if params[:cc] == "on"
-		emailBody += "You can reach me at " + params[:email] + ". "
+		emailBody += "You can reach me at [" + params[:email] + "]. "
 	end
 
 	emailBody += params["emailContact"].sub(/\A\s+/,'')
@@ -22,11 +22,11 @@ def send_email params
 		],  
 		:from_email=>"sender@yourdomain.com" 
 	} 
-	puts message[:html]
-	puts "--------------------------------"
-	puts message[:text]
-	puts "--------------------------------"
-	
+	# puts message[:html]
+	# puts "--------------------------------"
+	# puts message[:text]
+	# puts "--------------------------------"
+
 	# sending = m.messages.send message 
 	# puts sending
 end
