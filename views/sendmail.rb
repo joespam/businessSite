@@ -22,11 +22,7 @@ def send_email params
 		],  
 		:from_email=>"sender@yourdomain.com" 
 	} 
-	# puts message[:html]
-	# puts "--------------------------------"
-	# puts message[:text]
-	# puts "--------------------------------"
 
-	# sending = m.messages.send message 
-	# puts sending
+	sending = m.messages.send message 
+
 end
