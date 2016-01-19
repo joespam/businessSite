@@ -2,127 +2,99 @@
 //  Javascript - JCS Week 2 Day 1 final jQuery Exercise
 // 
 
-//
-//  commented out as a stub for future use
-//
-
 // define function to be run later
 var whenReady = function () {
 
-    $("#myLoginWrapper1").hide();
-    $("#myLoginWrapper2").hide();
-    $("#fol0").hide();
-    $("#fol1").hide();
-    $("#fol2").hide();
-    $("#fol3").hide();
-    $("#fol4").hide();
+	$("#myLoginWrapper").hide();
 
-	// this is our callback function
+	var i = 0;
+	for (i = 0; i < 5; i++) { 
+		$("#fol" + i.toString()).hide();
+	};
+
+	// callback for when user logs in as a provider
 	//
 	var provideClick = function() {
-		console.log('about to set provider_login as post');
+		console.log('about to set contact as post target');
 		// set the dialog to go to the login for providers
 		//
-		
-		$('#signinForm').action = '/contact';
-
-		// if( typeof ($('#signinForm')) === 'undefined' ) {
-		// 	$('#signinForm').action = "/provider_login";
-
-
-		// // show the modal login dialog
-		// //
-	     $("#myLoginWrapper1").show(500);
-		 // } else {
-		 // 	console.log("WHY can't I get the signin form?");
-		 // 	console.log(document);
-		 // }
-	}
-
-	var subscribeClick = function() {
-		// set the dialog to go to the login for subscribers
-		//
-		// $('#signinForm').action = "/subscriber_login";
-		// document.getElementById('#signinForm').action = "/subscriber_login";
-		// if( typeof ( document.getElementById('#signinForm') ) === 'undefined' ) {
+		$('#signinForm').get(0).setAttribute('action', '/provider_login'); 
 
 		// show the modal login dialog
 		//
-	    $("#myLoginWrapper2").show(500);
-		// } else {
-		// 	console.log("Also undefined getting element by ID")
-		// }
+		$("#myLoginWrapper").show(500);
+		$(".dropdown").css('display','none');
 	}
-
-	// depending on checkbox selector 'cb' state, 
-	// set visibility of widget selector 'target'
+	// callback for when user logs in as a subscriber
 	//
-	var toggleVis = function(cb, target) {
+	var subscribeClick = function() {
+		// set the dialog to go to the login for subscribers
+		//
+		$('#signinForm').get(0).setAttribute('action', '/subscriber_login'); 
 
-		if ($(cb).checked) {
-			// console.log('chekt')
-		} else {
-			// console.log('wrekt')
-		}
+		// show the modal login dialog
+		//
+		$("#myLoginWrapper").show(500);
+		$(".dropdown").css('display','none');
 	}
 
-	$('#provide').click( provideClick );		
+	// set up the click actions for providers/subscribers
+	// in the navbar
+	//
+	$('#provide').click( provideClick );
 	$('#subscribe').click( subscribeClick );
 
-    $("#btnCancel1").click(function() {
-    	$("#myLoginWrapper1").hide(400);
-    });
-    $("#btnCancel2").click(function() {
-    	$("#myLoginWrapper2").hide(400);
-    });
+	// ensure that hovering over 'log in' displays the dropdown
+	//
+	$("#dropdown").hover ( 
+		function() {$(".dropdown").css('display','block');}, 
+		function() {$(".dropdown").css('display','none');}
+	);
 
-    // enable and disable email field
-    // when textbox clicks
-    //
-    $("#c1").change( function() {
-    	// this does not work for unknown reasons
-    	// $("#emailfield").disabled = !this.checked;
-    	$("#emailfield").prop('disabled', !this.checked);
- 	});
+	// make sure that if the user cancels instead 
+	// of logging in, the login form goes away.
+	$("#btnCancel").click(function() {
+		$("#myLoginWrapper").hide(400);
+	});
 
-    // kludge for mockup functionality simulating
-    // subscribers selecting feeds
-    //
-	$("#v0").click( function() {
-		$("#fol0").toggle();
-   });
+	// enable and disable email field
+	// when form textbox clicks
+	//
+	$("#c1").change( function() {
+		// this does not work for unknown reasons
+		// $("#emailfield").disabled = !this.checked;
+		$("#emailfield").prop('disabled', !this.checked);
+	});
 
-	$("#v1").click( function() {
-		$("#fol1").toggle();
-   });
-
-	$("#v2").click( function() {
-		$("#fol2").toggle();
-   });
-
-	$("#v3").click( function() {
-		$("#fol3").toggle();
-   });
-
-	$("#v4").click( function() {
-		$("#fol4").toggle();
-   });
-
+   // on the subscriber page, set each provider checkbox to
+   // toggle the visibility of the corresponding feed div
+   // 
    for (i = 0; i < 5; i++) { 
-   	// construct checkbox, divid selector
-   	cbsel = "v" + i.toString();
-   	divid = "fol" + i.toString();
-   // 		console.log("HEY " + cbsel + " " + divid);
+	 	$("#v" + i.toString()).click( function() {
+			// $("#fol" + i.toString()).toggle(); 
+			// the above won't work because the concatenation
+			// to produce the element name isn't evaluated
+			// until click time, at which point i is static
+			//  at the 'for' loop exit condition value.
+			//
+			// but the value of 'i' we need is contained in the
+			// checkbox name, held in this.id, so we can
+			// extract everything that isn't a number and
+			// build the corresponding element name with that.
+			var numray = this.id.split("v");
+			$("#fol" + numray[1]).toggle(); 
+	   });
+   };
 
-   // 	$("input[name=" + cbsel + "]").change( function(cbsel, divid) {
-   // 		console.log("WHAT " + cbsel + " " + divid);
-			// // if ($("input[name=" + cbsel + "]").checked) {
-			// // 	console.log('chekt');
-			// // } else {
-			// // 	console.log('wrekt');
-			// // }
-	  //  });
-   }
+   $("#uploadV").click(function() {
+   	console.log("YTMND");
+   	if (this.checked) {
+   		console.log('chekt');
+	   	open('/upload_video','_self');
+	   } else {
+   		console.log('rekt');	   	
+	   }
+   });
 };
 
 // bind function to ready event

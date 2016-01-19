@@ -1,32 +1,14 @@
-
-
-<div class="dialog" id="myLoginWrapper1">
-    <form class="sitefont" id="signinForm1" method="POST" action="/provider_login">
+<div class="dialog" id="myLoginWrapper">
+    <form class="sitefont" id="signinForm" method="POST" action="/">
       <div class="row" align="center">
-        <label id="usernameL1">Username</label>
+        <label id="usernameL">Username</label>
         <input class="sitefont" type="text">
         <label id="passwordL">Password</label>
         <input class="sitefont" type="text">
       </div>
       <div class="row top-margin" align="center">
         <input class="btn" type="submit" value="Ok">
-        <a class="btn" href="/" type="button" value="Cancel" target="_blank">Cancel</a>
+        <a class="btn" id="btnCancel" href="#" type="button">Cancel</a>
       </div>
     </form>
 </div>
-
-<div class="dialog" id="myLoginWrapper2">
-    <form class="sitefont" id="signinForm2" method="POST" action="/subscriber_login">
-      <div class="row" align="center">
-        <label id="usernameL2">Username</label>
-        <input class="sitefont" type="text">
-        <label id="passwordL">Password</label>
-        <input class="sitefont" type="text">
-      </div>
-      <div class="row top-margin" align="center">
-        <input class="btn" type="submit" value="Ok">
-        <a class="btn" href="/" type="button" value="Cancel" target="_blank">Cancel</a>
-      </div>
-    </form>
-</div>
-
