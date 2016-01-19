@@ -11,7 +11,12 @@ var whenReady = function () {
 
     $("#myLoginWrapper1").hide();
     $("#myLoginWrapper2").hide();
-    
+    $("#fol0").hide();
+    $("#fol1").hide();
+    $("#fol2").hide();
+    $("#fol3").hide();
+    $("#fol4").hide();
+
 	// this is our callback function
 	//
 	var provideClick = function() {
@@ -49,6 +54,18 @@ var whenReady = function () {
 		// }
 	}
 
+	// depending on checkbox selector 'cb' state, 
+	// set visibility of widget selector 'target'
+	//
+	var toggleVis = function(cb, target) {
+
+		if ($(cb).checked) {
+			// console.log('chekt')
+		} else {
+			// console.log('wrekt')
+		}
+	}
+
 	$('#provide').click( provideClick );		
 	$('#subscribe').click( subscribeClick );
 
@@ -58,6 +75,54 @@ var whenReady = function () {
     $("#btnCancel2").click(function() {
     	$("#myLoginWrapper2").hide(400);
     });
+
+    // enable and disable email field
+    // when textbox clicks
+    //
+    $("#c1").change( function() {
+    	// this does not work for unknown reasons
+    	// $("#emailfield").disabled = !this.checked;
+    	$("#emailfield").prop('disabled', !this.checked);
+ 	});
+
+    // kludge for mockup functionality simulating
+    // subscribers selecting feeds
+    //
+	$("#v0").click( function() {
+		$("#fol0").toggle();
+   });
+
+	$("#v1").click( function() {
+		$("#fol1").toggle();
+   });
+
+	$("#v2").click( function() {
+		$("#fol2").toggle();
+   });
+
+	$("#v3").click( function() {
+		$("#fol3").toggle();
+   });
+
+	$("#v4").click( function() {
+		$("#fol4").toggle();
+   });
+
+   for (i = 0; i < 5; i++) { 
+   	// construct checkbox, divid selector
+   	cbsel = "v" + i.toString();
+   	divid = "fol" + i.toString();
+   // 		console.log("HEY " + cbsel + " " + divid);
+
+   // 	$("input[name=" + cbsel + "]").change( function(cbsel, divid) {
+   // 		console.log("WHAT " + cbsel + " " + divid);
+			// // if ($("input[name=" + cbsel + "]").checked) {
+			// // 	console.log('chekt');
+			// // } else {
+			// // 	console.log('wrekt');
+			// // }
+	  //  });
+   }
 };
 
 // bind function to ready event
