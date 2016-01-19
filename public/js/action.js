@@ -7,8 +7,9 @@ var whenReady = function () {
 
 	$("#myLoginWrapper").hide();
 
+	var channelCount = 5;
 	var i = 0;
-	for (i = 0; i < 5; i++) { 
+	for (i = 0; i < channelCount; i++) { 
 		$("#fol" + i.toString()).hide();
 	};
 
@@ -69,7 +70,7 @@ var whenReady = function () {
    // on the subscriber page, set each provider checkbox to
    // toggle the visibility of the corresponding feed div
    // 
-   for (i = 0; i < 5; i++) { 
+   for (i = 0; i < channelCount; i++) { 
 	 	$("#v" + i.toString()).click( function() {
 			// $("#fol" + i.toString()).toggle(); 
 			// the above won't work because the concatenation
